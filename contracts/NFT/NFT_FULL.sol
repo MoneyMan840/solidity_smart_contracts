@@ -174,3 +174,30 @@ contract NFT is ERC721Enumerable, Ownable {
     // =============================================================================
   }
 }
+pragma solidity >=0.4.22 <0.6.0;
+pragma experimental ABIEncoderV2;
+
+contract daPeeps {
+    struct Peep {uint a; uint b;} // declaration of Peep type
+    Peep peep; //declaration of an object of Peep type
+
+    constructor () public
+    {
+        peep.a = 0; // definition/initialisation of object
+        peep.b = 0; //
+    }
+
+    function initPeepToPeep(Peep memory i) public payable {
+        peep.a = i.a;
+        peep.b = i.b;
+    }
+    function setPeep(uint a, uint b) public payable {
+        peep.a = a;
+        peep.b = b;
+    }
+
+    function getPeep() public view returns(Peep memory)
+    {
+        return peep;
+    }
+}
